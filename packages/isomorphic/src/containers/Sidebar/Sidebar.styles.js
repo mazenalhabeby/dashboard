@@ -84,7 +84,8 @@ const SidebarWrapper = styled.div`
         -ms-flex-align: center;
         align-items: center;
         padding: 0 24px;
-        margin-bottom: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
         border-radius: 20px;
       }
 
@@ -114,7 +115,7 @@ const SidebarWrapper = styled.div`
       }
 
       .nav-text {
-        font-size: 17px;
+        font-size: 20px;
         color: inherit;
         font-weight: 500;
         ${transition()};
@@ -122,16 +123,23 @@ const SidebarWrapper = styled.div`
 
       .ant-menu-item-selected {
         background-color: #fde047;
+        padding-bottom: 33px;
+        padding-top: 33px;
+        border-radius: 40px !important;
+
         .anticon {
           color: #fff;
         }
 
         i {
           color: #2d3446;
+          font-size: 35px;
         }
 
         .nav-text {
           color: #2d3446;
+          font-size: 23px;
+          margin-left: 10px;
         }
       }
 
