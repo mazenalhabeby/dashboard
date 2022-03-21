@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- BLOCKPASS WIDGET SCRIPT -->
+    <script src="https://cdn.blockpass.org/widget/scripts/release/3.0.0/blockpass-kyc-connect.prod.js"></script>
+  </head>
+  <body>
+    <button id="blockpass-kyc-connect">Connect with Blockpass</button>
+    <script>
+        const blockpass = new BlockpassKYCConnect(
+        'league_of_pharaohs_ef112', 
+        {
+            env: 'prod', 
+            local_user_id: Date.now() 
+        }) 
+    
+        blockpass.startKYCConnect()
+
+        blockpass.on('KYCConnectSuccess', () => {
+            //add code that will trigger when data have been sent. ex:
+            //alert('Success!')
+        })
+
+        blockpass.on('KYCConnectClose', () => {
+            //add code that will trigger when the workflow is finished. ex:
+            //alert('Finished!')
+        })
+
+        blockpass.on('KYCConnectCancel', () => {
+            //add code that will trigger when the workflow is aborted. ex:
+            //alert('Cancelled!')
+        })
+    </script>   
+  </body>
+</html>

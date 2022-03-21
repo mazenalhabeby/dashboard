@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/isomorphic
+    ports:
+      - 3002:3002
+    image: app:react
+    container_name: react_container
+    tty: true
+    stdin_open: true # without this node doesn't start
