@@ -263,6 +263,7 @@ const NoteListSidebar = styled.div`
         cursor: pointer;
 
         h3 {
+          font-size: 16px;
           width: 100%;
           white-space: nowrap;
           text-overflow: ellipsis;
