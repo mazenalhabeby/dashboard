@@ -9,6 +9,8 @@ import FirebaseLoginForm from '../../FirebaseForm/FirebaseForm';
 import authAction from '@iso/redux/auth/actions';
 import appAction from '@iso/redux/app/actions';
 import Auth0 from '../../Authentication/Auth0/Auth0';
+import FirebaseSignUpForm from '../../FirebaseForm/FirebaseForm';
+
 import {
   signInWithGoogle,
   signInWithFacebook,
@@ -80,9 +82,13 @@ export default function SignIn() {
                 <Checkbox>
                   <IntlMessages id="page.signInRememberMe" />
                 </Checkbox>
-                <Button type="primary" onClick={handleLogin}>
+                {/* <Button type="primary" onClick={handleLogin}>
                   <IntlMessages id="page.signInButton" />
-                </Button>
+                </Button> */}
+                <FirebaseLoginForm
+                  history={history}
+                  login={token => dispatch(login(token))}
+                />
               </div>
 
               <p className="isoHelperText">
@@ -90,21 +96,21 @@ export default function SignIn() {
               </p>
             </form>
             <div className="isoInputWrapper isoOtherLogin">
-              <Button
+              {/* <Button
                 onClick={signInWithFacebook}
                 type="primary"
                 className="btnFacebook"
               >
                 <IntlMessages id="page.signInFacebook" />
-              </Button>
-              <Button
+              </Button> */}
+              {/* <Button
                 onClick={signInWithGoogle}
                 type="primary"
                 className="btnGooglePlus"
               >
                 <IntlMessages id="page.signInGooglePlus" />
-              </Button>
-
+              </Button> */}
+              {/* 
               <Button
                 onClick={() => {
                   Auth0.login();
@@ -113,20 +119,19 @@ export default function SignIn() {
                 className="btnAuthZero"
               >
                 <IntlMessages id="page.signInAuth0" />
-              </Button>
-
-              <FirebaseLoginForm
-                history={history}
-                login={token => dispatch(login(token))}
-              />
+              </Button> */}
             </div>
             <div className="isoCenterComponent isoHelperWrapper">
               <Link to="/forgotpassword" className="isoForgotPass">
                 <IntlMessages id="page.signInForgotPass" />
               </Link>
-              <Link to="/signup">
-                <IntlMessages id="page.signInCreateAccount" />
-              </Link>
+
+              {/* <IntlMessages id="page.signInCreateAccount" /> */}
+              <FirebaseSignUpForm
+                signup={true}
+                history={history}
+                login={() => dispatch(login())}
+              />
             </div>
           </div>
         </div>
