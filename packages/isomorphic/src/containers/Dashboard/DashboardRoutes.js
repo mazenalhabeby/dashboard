@@ -17,6 +17,10 @@ const routes = [
     component: lazy(() => import('@iso/containers/Profile/Profile')),
   },
   {
+    path: 'activation',
+    component: lazy(() => import('@iso/containers/Activation/Activation')),
+  },
+  {
     path: 'swiperslider',
     component: lazy(() =>
       import('@iso/containers/UIElements/SwiperSlider/SwiperSlider')

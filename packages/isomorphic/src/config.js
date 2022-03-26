@@ -1,4 +1,5 @@
-export default {
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
   apiKey: 'AIzaSyCeE9lSE4LAok8tbiZTl5SugUv3SD--Mak',
   authDomain: 'lopproject.firebaseapp.com',
   projectId: 'lopproject',

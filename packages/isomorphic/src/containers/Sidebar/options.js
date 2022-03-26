@@ -27,6 +27,11 @@ const options = [
     label: 'sidebar.profile',
     leftIcon: 'ion-person',
   },
+  // {
+  //   key: 'activation',
+  //   label: 'Activation',
+  //   leftIcon: 'ion-person',
+  // },
   {
     key: 'blank_page',
     label: 'sidebar.buylop',
