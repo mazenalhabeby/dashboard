@@ -1,6 +1,6 @@
 export default {
   clientID: 'your_client_id',
-  domain: 'your_domain_name',
+  domain: 'dashboard.leagueofpharaohs.com',
   allowedConnections: ['Username-Password-Authentication'],
   rememberLastLogin: true,
   language: 'en',
@@ -13,7 +13,7 @@ export default {
       redirectUrl:
         process.env.NODE_ENV !== 'production'
           ? 'http://localhost:3000/auth0loginCallback'
-          : 'https://your_domain_name/auth0loginCallback',
+          : 'http://dashboard.leagueofpharaohs.com/auth0loginCallback',
     },
     languageDictionary: {
       title: 'Isomorphic',
