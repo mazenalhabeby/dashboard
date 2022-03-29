@@ -1,5 +1,5 @@
 export default {
-  clientID: 'your_client_id',
+  clientID: '11',
   domain: 'dashboard.leagueofpharaohs.com',
   allowedConnections: ['Username-Password-Authentication'],
   rememberLastLogin: true,
