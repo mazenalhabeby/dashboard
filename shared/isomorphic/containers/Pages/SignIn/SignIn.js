@@ -23,7 +23,7 @@ const { login } = authAction;
 const { clearMenu } = appAction;
 
 export default function SignIn() {
-  let history = useHistory();
+  //let history = useHistory();
   let location = useLocation();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.Auth.idToken);
