@@ -31,6 +31,12 @@ export default function DndCalendar() {
     selectedData: undefined,
   });
 
+  // onload go fetch for events
+
+  // on Add eevents save it
+
+  // on  remove events
+
   const onSelectEvent = selectedData => {
     setState({ ...state, modalVisible: 'update', selectedData });
   };
@@ -102,6 +108,7 @@ export default function DndCalendar() {
       setState({ ...state, selectedData });
     } else {
       if (modalVisible === 'new') {
+        // save calender
         newEvents.push(selectedData);
       } else {
         const idx = getIndex(newEvents, selectedData);

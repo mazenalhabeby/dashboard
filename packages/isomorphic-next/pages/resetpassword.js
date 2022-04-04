@@ -32,6 +32,9 @@ function ResetPassword() {
 
           <div className="isoResetPassForm">
             <div className="isoInputWrapper">
+              <Input size="large" type="password" placeholder="Old Password" />
+            </div>
+            <div className="isoInputWrapper">
               <Input size="large" type="password" placeholder="New Password" />
             </div>
 

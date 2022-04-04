@@ -1,0 +1,38 @@
+.hidden {
+  display: none;
+}
+.errorMsg {
+  color: red !important;
+}
+.ActivationText {
+  color: #0a101d;
+  font-size: 21px;
+}
+.VerificationCheckbox {
+  margin-right: 10px;
+}
+.terms1 {
+  color: #aab2be;
+}
+.ActivationTerms {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.ActivationButton,
+.ActivationTerms {
+  background: #fde047;
+  color: #0a101d;
+  border-style: none;
+}
+.ActivationButton {
+  font-size: 21px;
+  padding-left: 70px;
+  padding-right: 70px;
+  border-radius: 20px;
+  margin-bottom: 5%;
+  font-weight: 500;
+}
+/*# sourceMappingURL=99.73a8ac6e.chunk.css.map */

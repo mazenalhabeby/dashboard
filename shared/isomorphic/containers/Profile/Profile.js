@@ -54,40 +54,38 @@ export default class extends Component {
         </Link>
       );
     }
-
     return (
       <div className="instructions">
         <div class="container rounded bg-white mt-5 mb-5">
           <div class="row">
-            <div class="col-md-3 border-right">
-              <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img
-                  class="rounded-circle mt-5"
-                  width="150px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                />
-              </div>
-            </div>
-            <div class="col-md-5 border-right">
+            <div class="col-md-12 ">
               <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4 class="text-right">Profile</h4>
                 </div>
                 <div class="row mt-">
                   <div class="col-md-12">
-                    <label class="labels">Username</label>
+                    <label class="labels">
+                      Username : {cookies.get('username')}{' '}
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="labels">
+                      {' '}
+                      Full Name : {cookies.get('username')}{' '}
+                    </label>
                   </div>
                 </div>
                 <div class="row mt-">
-                  <div class="col-md-10">
+                  <div class="col-md-4">
                     <label class="labels">Activation Status </label>
                   </div>
                   <div class="col-md-2">{button}</div>
                 </div>
                 <br />
                 <div class="row mt-">
-                  <div class="col-md-10">
-                    <label class="labels">Email {this.state.currentUser}</label>
+                  <div class="col-md-4">
+                    <label class="labels">Email {cookies.get('email')} </label>
                   </div>
                   <div class="col-md-2">
                     <button
@@ -108,11 +106,6 @@ export default class extends Component {
                       Change Password
                     </button>
                   </Link>
-                </div>
-                <div class="mt-5 text-center">
-                  <button class="btn btn-primary profile-button" type="button">
-                    Save Profile
-                  </button>
                 </div>
               </div>
             </div>

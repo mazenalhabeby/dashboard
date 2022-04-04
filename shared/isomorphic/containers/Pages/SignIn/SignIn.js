@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Input from '@iso/components/uielements/input';
@@ -9,8 +9,7 @@ import FirebaseLoginForm from '../../FirebaseForm/FirebaseForm';
 import authAction from '@iso/redux/auth/actions';
 import appAction from '@iso/redux/app/actions';
 import Auth0 from '../../Authentication/Auth0/Auth0';
-import FirebaseSignUpForm from '../../FirebaseForm/FirebaseForm';
-
+import Cookies from 'universal-cookie';
 import {
   signInWithGoogle,
   signInWithFacebook,
@@ -23,8 +22,10 @@ const { login } = authAction;
 const { clearMenu } = appAction;
 
 export default function SignIn() {
+  const [error, setError] = useState(null);
   let history = useHistory();
   let location = useLocation();
+  const [inputs, setInputs] = useState({});
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.Auth.idToken);
 
@@ -34,9 +35,52 @@ export default function SignIn() {
       setRedirectToReferrer(true);
     }
   }, [isLoggedIn]);
+  const handleChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({ ...values, [name]: value }));
+  };
+  function signUpRequest() {
+    let url = authAction.LOGIN_API + 'login';
 
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(inputs),
+    };
+    fetch(url, requestOptions)
+      .then(res => res.json())
+      .then(
+        result => {
+          if (result.token) {
+            //get the token and user name
+            const cookies = new Cookies();
+            cookies.set('username', result.user.username, { path: '/' });
+            cookies.set('name', result.user.name, { path: '/' });
+            cookies.set('email', result.user.email, { path: '/' });
+            cookies.set('token', result.token, { path: '/' });
+            dispatch(login(result.token));
+            dispatch(clearMenu());
+            history.push('/dashboard');
+          }
+
+          if (result.error) {
+            setError(result.error);
+          }
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          if (result.error) {
+            setError(result.error);
+          }
+        }
+      );
+  }
   function handleLogin(e, token = false) {
     e.preventDefault();
+
     if (token) {
       dispatch(login(token));
     } else {
@@ -60,12 +104,15 @@ export default function SignIn() {
             </Link>
           </div>
           <div className="isoSignInForm">
+            <h2>{!!error ? error : ''}</h2>
             <form>
               <div className="isoInputWrapper">
                 <Input
                   size="large"
                   placeholder="Username"
                   autoComplete="true"
+                  name="username"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -74,7 +121,9 @@ export default function SignIn() {
                   size="large"
                   type="password"
                   placeholder="Password"
+                  name="password"
                   autoComplete="false"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -82,13 +131,9 @@ export default function SignIn() {
                 <Checkbox>
                   <IntlMessages id="page.signInRememberMe" />
                 </Checkbox>
-                {/* <Button type="primary" onClick={handleLogin}>
+                <Button type="primary" onClick={signUpRequest}>
                   <IntlMessages id="page.signInButton" />
-                </Button> */}
-                <FirebaseLoginForm
-                  history={history}
-                  login={token => dispatch(login(token))}
-                />
+                </Button>
               </div>
 
               <p className="isoHelperText">
@@ -102,16 +147,16 @@ export default function SignIn() {
                 className="btnFacebook"
               >
                 <IntlMessages id="page.signInFacebook" />
-              </Button> */}
-              {/* <Button
+              </Button>
+              <Button
                 onClick={signInWithGoogle}
                 type="primary"
                 className="btnGooglePlus"
               >
                 <IntlMessages id="page.signInGooglePlus" />
               </Button> */}
-              {/* 
-              <Button
+
+              {/* <Button
                 onClick={() => {
                   Auth0.login();
                 }}
@@ -120,18 +165,20 @@ export default function SignIn() {
               >
                 <IntlMessages id="page.signInAuth0" />
               </Button> */}
+
+              {/* <FirebaseLoginForm
+                history={history}
+                login={token => dispatch(login(token))}
+              /> */}
             </div>
             <div className="isoCenterComponent isoHelperWrapper">
               <Link to="/forgotpassword" className="isoForgotPass">
                 <IntlMessages id="page.signInForgotPass" />
               </Link>
 
-              {/* <IntlMessages id="page.signInCreateAccount" /> */}
-              <FirebaseSignUpForm
-                signup={true}
-                history={history}
-                login={() => dispatch(login())}
-              />
+              <Link to="/signup">
+                <IntlMessages id="page.signInCreateAccount" />
+              </Link>
             </div>
           </div>
         </div>
