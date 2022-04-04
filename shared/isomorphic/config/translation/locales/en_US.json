@@ -479,6 +479,7 @@
   "page.signUpTitle": "LOP Dashboard",
   "page.signUpTermsConditions": "I agree with terms and condtions",
   "page.signUpButton": "Sign Up",
+  "page.changeEmailButton": "Change Email",
   "page.signUpFacebook": "Sign up with Facebook",
   "page.signUpGooglePlus": "Sign up with Google Plus",
   "page.signUpAuth0": "Sign Up with Auth0",

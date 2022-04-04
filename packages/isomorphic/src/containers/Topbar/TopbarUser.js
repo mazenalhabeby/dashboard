@@ -21,12 +21,12 @@ export default function TopbarUser() {
       <Link className="isoDropdownLink" to={'/dashboard/my-profile'}>
         <IntlMessages id="topbar.myprofile" />
       </Link>
-      <a className="isoDropdownLink" href="# ">
+      {/* <a className="isoDropdownLink" href="# ">
         <IntlMessages id="themeSwitcher.settings" />
-      </a>
-      <a className="isoDropdownLink" href="# ">
+      </a> */}
+      {/* <a className="isoDropdownLink" href="# ">
         <IntlMessages id="sidebar.feedback" />
-      </a>
+      </a> */}
       <a className="isoDropdownLink" href="# ">
         <IntlMessages id="topbar.help" />
       </a>

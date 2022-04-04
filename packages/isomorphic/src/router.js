@@ -37,6 +37,12 @@ const publicRoutes = [
     component: lazy(() => import('@iso/containers/Pages/SignUp/SignUp')),
   },
   {
+    path: PUBLIC_ROUTE.CHANGE_EMAIL,
+    component: lazy(() =>
+      import('@iso/containers/Pages/ChangeEmail/ChangeEmail')
+    ),
+  },
+  {
     path: PUBLIC_ROUTE.FORGET_PASSWORD,
     component: lazy(() =>
       import('@iso/containers/Pages/ForgotPassword/ForgotPassword')

@@ -2,6 +2,7 @@ export const PUBLIC_ROUTE = {
   LANDING: '/',
   SIGN_IN: '/signin',
   SIGN_UP: '/signup',
+  CHANGE_EMAIL: '/changeemail',
   FORGET_PASSWORD: '/forgotpassword',
   RESET_PASSWORD: '/resetpassword',
   PAGE_404: '/404',
