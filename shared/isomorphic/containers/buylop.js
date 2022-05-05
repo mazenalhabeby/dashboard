@@ -9,7 +9,7 @@ export default class extends Component {
         <LayoutContent>
           <h1>Buy LOP</h1>
           <p>
-            You can buy here LOP tokens, our current price is 0.015$ BUSD per 1
+            You can buy here ssssLOP tokens, our current price is 0.015$ BUSD per 1
             LOP token.
           </p>
           <button>Buy Now</button>
